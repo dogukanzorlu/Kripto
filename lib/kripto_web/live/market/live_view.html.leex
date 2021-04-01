@@ -1,0 +1,58 @@
+<div class="header bg-primary pb-6">
+</div>
+<!-- Page content -->
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col">
+      <div class="card bg-default shadow">
+        <div class="card-header bg-transparent border-0">
+          <h3 class="text-white mb-0">ALL COIN</h3>
+          <h4 class="text-white mb-0">Updated at: <%= @updated_at %></h3>
+        </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-dark table-flush">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Coin</th>
+                <th scope="col">Price</th>
+                <th scope="col">1H % Change (USD)</th>
+                <th scope="col">24H % Change (USD)</th>
+                <th scope="col">Social Volume</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody class="list">
+              <%= Enum.map(@rates["data"], fn(item) -> %>
+              <tr>
+                <th scope="row">
+                  <div class="media align-items-center">
+                    <div class="media-body">
+                      <span class="name mb-0 text-sm"><%= item["n"] %></span> | <span
+                        class="name mb-0 text-sm"><%= item["s"] %></span>
+                    </div>
+                  </div>
+                </th>
+                <td>
+                  <p>$<%= item["p"] %><p>
+                      <p>$<%= item["p_btc"] %> BTC</p>
+                </td>
+                <% pch = to_string item["pch"]%>
+                <td style=<%= if String.at(pch,0) == "-", do: "color:red", else: "color:green" %>>
+                  <%= item["pch"] %>%
+                </td>
+                <% pc = to_string item["pc"]%>
+                <td style=<%= if String.at(pch,0) == "-", do: "color:red", else: "color:green" %>>
+                  <%= item["pc"] %>%
+                </td>
+                <td>
+                  <%= item["sv"] %>
+                </td>
+              </tr>
+              <% end) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

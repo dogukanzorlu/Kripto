@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="CryptoCurreny Market powered by Elixir LiveView">
+    <meta name="author" content="Dogukan Zorlu">
+    <%= csrf_meta_tag() %>
+    <%= live_title_tag assigns[:page_title] || "Kripto", suffix: " · Phoenix Framework" %>
+    <title>Kripto CryptoCurreny Market</title>
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
+    <!-- Page plugins -->
+    <!-- Argon CSS -->
+    <link phx-track-static rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <script defer phx-track-static type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </head>
+  <body>
+    <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+      <div class="scrollbar-inner">
+        <!-- Brand -->
+        <div class="sidenav-header  align-items-center">
+          <a class="navbar-brand" href="javascript:void(0)">
+            <h1>KRIPTO</h1>
+          </a>
+        </div>
+        <div class="navbar-inner">
+          <!-- Collapse -->
+          <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+            <!-- Nav items -->
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" href="/">
+                  <i class="ni ni-sound-wave text-primary"></i>
+                  <span class="nav-link-text">Market</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/exchange">
+                  <i class="ni ni-chart-bar-32 text-primary"></i>
+                  <span class="nav-link-text">Exchange</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="/news">
+                  <i class="ni ni-world text-primary"></i>
+                  <span class="nav-link-text">News</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+      <!-- Main content -->
+    <div class="main-content" id="panel">
+      <!-- Topnav -->
+      <nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Search form -->
+          </div>
+        </div>
+      </nav>
+      <%= @inner_content %>
+    </div>
+  </body>
+</html>
