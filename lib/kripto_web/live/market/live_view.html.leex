@@ -41,7 +41,7 @@
                   <%= item["pch"] %>%
                 </td>
                 <% pc = to_string item["pc"]%>
-                <td style=<%= if String.at(pch,0) == "-", do: "color:red", else: "color:green" %>>
+                <td style=<%= if String.at(pc,0) == "-", do: "color:red", else: "color:green" %>>
                   <%= item["pc"] %>%
                 </td>
                 <td>
